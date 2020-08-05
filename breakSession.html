@@ -45,36 +45,9 @@
     <h2 id="timer">10:00</h2>
   </div>
 
+  <script src="index.js"></script>
   <script>
-    const sessionEl = document.getElementById('num');
-    const timerEl = document.getElementById('timer');
-    const { hash } = window.location;
-
-    const maxMinutes = 10 * 60;
-    const currentNum = hash ? hash.replace('#', '') : 1;
-    let currentTimer = maxMinutes;
-
-    const addZero = (number) => {
-      if (String(number).length === 1) {
-        return `0${number}`;
-      }
-
-      return number;
-    }
-
-    sessionEl.innerText = currentNum;
-
-    setInterval(() => {
-      if (currentTimer > 0) {
-        currentTimer -= 1;
-
-        const minutes = Math.floor(currentTimer / 60);
-        const seconds = Math.floor(currentTimer - minutes * 60);
-
-        timerEl.innerText = `${addZero(minutes)}:${addZero(seconds)}`;
-      }
-    }, 1000);
-
+    startTimer(10 * 60);
   </script>
 </body>
 </html>
